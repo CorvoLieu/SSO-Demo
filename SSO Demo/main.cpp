@@ -27,13 +27,13 @@ void denyAccess() {
 }
 
 ConnectionRequest prepareForAuthenticate() {
-    // TODO: Implement SAML request preparation
+    // TODO: Implement request preparation
     ConnectionRequest request;
     return request;
 }
 
-bool processResponse(ConnectionResponse samlResponse) {
-    // TODO: Implement SAML response processing
+bool processResponse(ConnectionResponse response) {
+    // TODO: Implement response processing
     return true;
 }
 
@@ -49,32 +49,32 @@ void redirectToIdp(ConnectionRequest samlRequest) {
     // TODO: Implement redirection to IdP
 }
 
-ConnectionResponse receiveSamlResponse() {
-    // TODO: Implement reception of SAML response
+ConnectionResponse receiveResponse() {
+    // TODO: Implement reception of response
     ConnectionResponse response;
     return response;
 }
 
 // Main function
 int main() {
-    // Initiate SAML request
-    ConnectionRequest samlRequest = prepareForAuthenticate();
+    // Initiate request
+    ConnectionRequest request = prepareForAuthenticate();
 
     // Redirect user to IdP for authentication
-    redirectToIdp(samlRequest);
+    redirectToIdp(request);
 
-    // Receive SAML response from IdP
-    ConnectionResponse samlResponse = receiveSamlResponse();
+    // Receive response from IdP
+    ConnectionResponse response = receiveResponse();
 
-    // Verify SAML response
-    if (processResponse(samlResponse)) {
-        // SAML response is valid, retrieve user attributes
+    // Verify response
+    if (processResponse(response)) {
+        // Response is valid, retrieve user attributes
         UserAttributes userAttributes = getAttributes();
         // Authenticate user and grant access
         grantAccess(userAttributes);
     }
     else {
-        // SAML response is invalid, deny access
+        // Response is invalid, deny access
         denyAccess();
     }
 
