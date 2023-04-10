@@ -19,4 +19,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="server\IdP_DB.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="server\open_session.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="client\Cookies.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
