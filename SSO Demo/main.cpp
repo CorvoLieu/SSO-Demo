@@ -6,6 +6,8 @@
 
 using namespace std;
 
+int session_time = 30; // Time of the session in seconds
+
 // User information
 struct IdPUser {
 	string username;
@@ -186,7 +188,7 @@ ConnectionResponse sIdPCheck(ConnectionRequest request)
 		if (request.username == u.username && request.password == u.password)
 		{
 			response.id_user = u.id_user;
-			response.expire_date = to_string(time(nullptr) + 30); // 30 seconds demo
+			response.expire_date = to_string(time(nullptr) + session_time);
 			sCreateSession(response);
 			return response;
 		}
