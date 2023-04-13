@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int session_time = 30; // Time of the session in seconds
+int session_time = 20; // Time of the session in seconds
 
 // User information
 struct IdPUser {
@@ -219,6 +219,7 @@ ConnectionResponse sCheckSavedSession(ConnectionResponse s)
 // Main function
 int main()
 {
+	cout << "-- Client 1 --\n\n";
 	// Check cookies for previous session
 	auto savedCookie = cGetCookies();
 	ConnectionResponse session;
@@ -237,7 +238,7 @@ int main()
 		{
 			cout << "Previous session expired.\n";
 			ConnectionRequest request = cPrepareForAuthenticate();
-
+			 
 			// Receive response from IdP
 			session = sIdPCheck(request);
 		}
